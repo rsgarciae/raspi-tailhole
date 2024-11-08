@@ -1,0 +1,24 @@
+{
+	"groups": {
+		"group:admin": ["<REPLACE_WITH_YOUR_MAIL>"],
+	},
+	"tagOwners": {
+		"tag:exitnode": ["group:admin"],
+	},
+	"acls": [
+
+		{"action": "accept", "src": ["*"], "dst": ["*:*"]},
+	],
+	"ssh": [
+		{
+			"action": "check",
+			"src":    ["autogroup:member"],
+			"dst":    ["autogroup:self"],
+			"users":  ["autogroup:nonroot", "root"],
+		},
+	],
+	"autoApprovers": {
+		"routes":   {"<REPLACE_WITH_SUBNET_ROUTES>": ["group:admin"]},
+		"exitNode": ["group:admin"],
+	},
+}
